@@ -1,0 +1,11 @@
+.mystic-title {
+  font-family: "Great Vibes", cursive;
+}
+
+body {
+  font-family: "Lora Variable", serif;
+}
+
+.animate__animated.animate__fadeInUp {
+  --animate-duration: 2s;
+}
