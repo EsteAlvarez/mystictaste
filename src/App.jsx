@@ -10,7 +10,6 @@ import {
 import "./styles/extra.css";
 import "@fontsource-variable/lora";
 import "@fontsource/great-vibes";
-import "ldrs/dotPulse";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -26,7 +25,7 @@ function App() {
     <>
       {loading ? (
         <div className="min-h-[100vh] min-w-[100%] bg-[#111] flex justify-center items-center">
-          <l-dot-pulse size="43" speed="1.3" color="orange"></l-dot-pulse>
+          <div className="loader"></div>
         </div>
       ) : (
         <div>
