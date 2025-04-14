@@ -16,18 +16,28 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
+    const handleLoad = () => {
+      // Esperar un poco para dar sensación de transición suave
+      setTimeout(() => {
+        setLoading(false);
+      }, 500);
+    };
+
+    // Espera a que todo haya cargado (html, css, imágenes, fuentes, etc.)
+    window.addEventListener("load", handleLoad);
+
+    return () => {
+      window.removeEventListener("load", handleLoad);
+    };
   }, []);
 
   return (
     <>
-      {loading ? (
-        <div className="min-h-[100vh] min-w-[100%] bg-[#111] flex justify-center items-center">
-          <div className="loader"></div>
-        </div>
-      ) : (
+      <div className={`preloader ${!loading ? "fade-out" : ""}`}>
+        <div className="loader"></div>
+      </div>
+
+      {!loading && (
         <div>
           <Header />
           <Dishes />
