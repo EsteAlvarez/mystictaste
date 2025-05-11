@@ -50,3 +50,20 @@ body {
   opacity: 0;
   pointer-events: none;
 }
+
+.hero-fade-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  animation: fadeOutOverlay 1.5s ease forwards;
+  z-index: 1;
+}
+
+@keyframes fadeOutOverlay {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
