@@ -2,24 +2,15 @@ import FooterItem from "../Elements/FooterItem";
 
 export const Footer = () => {
   return (
-    <footer className="min-h-[40vh] bg-[#111] text-white flex flex-col sm:flex-row gap-5 px-6 py-15 justify-between">
-      <div>
-        <h2 className="mystic-title text-[#e59205] text-4xl">
-          <a href="index.html">Mystic Taste.</a>
-        </h2>
-      </div>
-      <div className="grid gap-5 grid-cols-1 md:grid-cols-2">
-        <FooterItem title={"Contacto"}>
-          <p className="text-[#ececec]">contacto@mystictaste.cl</p>
-        </FooterItem>
-        <FooterItem title={"Dirección"}>
-          <p className="text-[#ececec]">Calle de ejemplo #1234</p>
-        </FooterItem>
-        <FooterItem title={"Horarios"}>
-          <p className="text-[#ececec]">Lunes a viernes de 9:00am a 20:00pm</p>
-          <p className="text-[#ececec]">Sabado y domingo de 9:00am a 21:00pm</p>
-        </FooterItem>
-      </div>
+    <footer className=" flex flex-col gap-5 justify-center items-center min-h-[40vh] bg-[#111] text-white text-center">
+      <h2 className="mystic-title text-[#e59205] text-4xl">
+        <a href="index.html">Mystic Taste.</a>
+      </h2>
+      <p className="w-[95%] sm:w-[70%] md:w-[60%] mx-auto">
+        Mystic Taste es un proyecto ficticio creado con fines demostrativos.
+        Todos los contenidos, imágenes y descripciones son parte de una
+        propuesta creativa sin fines comerciales.
+      </p>
     </footer>
   );
 };

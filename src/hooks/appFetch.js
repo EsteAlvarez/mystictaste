@@ -1,31 +1,33 @@
-import { useEffect, useState } from "react";
-import { Client, Databases } from "appwrite";
+import { useState, useEffect } from "react";
 
-const client = new Client()
-  .setEndpoint(import.meta.env.VITE_APPWRITE_ENDPOINT)
-  .setProject(import.meta.env.VITE_APPWRITE_PROJECT_ID);
-
-const databases = new Databases(client);
-
-export const appFetch = (database, collection) => {
+export const useFetch = (url) => {
   const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await databases.listDocuments(database, collection);
-        setData(response.documents);
+        const response = await fetch(url);
+        if (!response.ok) {
+          console.error("Error al obtener la respuesta");
+          return;
+        }
+
+        const data = await response.json();
+        if (!data || data.length === 0) {
+          console.error("No hay datos disponibles");
+        }
+
+        setData(data);
       } catch (err) {
-        setError(`Error al obtener los datos: ${err.message}`);
-        console.error(err);
+        console.error(`Error al ejecutar la función: ${err}`);
       } finally {
         setLoading(false);
       }
     };
-    fetchData();
-  }, [database, collection]);
 
-  return { data, error, loading };
+    fetchData();
+  }, [url]);
+
+  return { data, loading };
 };
